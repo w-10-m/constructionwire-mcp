@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.0...v1.1.1) (2025-12-17)
+
+
+### Bug Fixes
+
+* enable OIDC trusted publishing ([3b53e07](https://github.com/w-10-m/constructionwire-mcp/commit/3b53e07b1d5413b28cc41cc32a92cea6fa215067))
+* use OIDC for npm publish, semantic-release for versioning ([5c8e54f](https://github.com/w-10-m/constructionwire-mcp/commit/5c8e54f5589027f71832c4c81629457908b9274f))
+
 # [1.1.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.0.0...v1.1.0) (2025-12-17)
 
 
