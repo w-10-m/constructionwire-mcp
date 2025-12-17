@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.3...v1.1.4) (2025-12-17)
+
+
+### Bug Fixes
+
+* upgrade npm for OIDC support ([dd6b1ff](https://github.com/w-10-m/constructionwire-mcp/commit/dd6b1ff9767ddab6f75368ac60418b39c7286dfe))
+
 ## [1.1.3](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.2...v1.1.3) (2025-12-17)
 
 
