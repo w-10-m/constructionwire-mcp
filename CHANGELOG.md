@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.0.0...v1.1.0) (2025-12-17)
+
+
+### Features
+
+* initial release with trusted publishing ([20abfd3](https://github.com/w-10-m/constructionwire-mcp/commit/20abfd326375ae0e93cc87ada569c2da33d4b8c3))
+
 # 1.0.0 (2025-12-17)
 
 
