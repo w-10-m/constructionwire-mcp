@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.1...v1.1.2) (2025-12-17)
+
+
+### Bug Fixes
+
+* use semantic-release-action for proper outputs ([ce7c959](https://github.com/w-10-m/constructionwire-mcp/commit/ce7c959fe96959960e3bccd766a885d593978d93))
+
 ## [1.1.1](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.0...v1.1.1) (2025-12-17)
 
 
