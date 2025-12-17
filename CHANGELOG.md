@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.2...v1.1.3) (2025-12-17)
+
+
+### Bug Fixes
+
+* add contents read permission to publish job ([88569fb](https://github.com/w-10-m/constructionwire-mcp/commit/88569fbbdda735475a85e574307c7c0b731874b9))
+
 ## [1.1.2](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.1...v1.1.2) (2025-12-17)
 
 
