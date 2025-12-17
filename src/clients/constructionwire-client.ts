@@ -1,7 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 import { Logger } from '../services/logger.js';
 import { RequestOptions, ProgressCallback } from '../types.js';
-import { ConstructionWireOAuthClient } from '../oauth/constructionwire-oauth-client.js';
 
 export interface ConstructionwireClientConfig {
   cONSTRUCTIONWIREUSERNAME?: string;
@@ -18,7 +17,6 @@ export class ConstructionwireClient {
   private config: ConstructionwireClientConfig;
   private sessionId: string;
   private logger: Logger;
-  private oauthClient: ConstructionWireOAuthClient;
 
   constructor(config: ConstructionwireClientConfig) {
     this.config = config;
@@ -44,8 +42,6 @@ export class ConstructionwireClient {
       configKeys: Object.keys(config)
     });
 
-    this.oauthClient = new ConstructionWireOAuthClient();
-    
     this.httpClient = axios.create({
       baseURL: this.resolveBaseUrl(),
       timeout: this.config.timeout || 30000,
@@ -207,22 +203,27 @@ export class ConstructionwireClient {
   }
 
   private getAuthHeaders(): Record<string, string> {
-    // OAuth authentication (both ConstructionWire and standard OAuth) - handled dynamically
-    // Tokens will be applied asynchronously via makeAuthenticatedRequest
-    this.logger.logAuthEvent('oauth_auth_setup', true, {
-      authType: 'basic+bearer',
-      message: 'OAuth tokens will be applied dynamically during requests',
-      oauthClientPresent: !!this.oauthClient
+    // Basic authentication using username/password
+    const headers: Record<string, string> = {};
+    if (this.config.cONSTRUCTIONWIREUSERNAME && this.config.cONSTRUCTIONWIREPASSWORD) {
+      const credentials = Buffer.from(
+        `${this.config.cONSTRUCTIONWIREUSERNAME}:${this.config.cONSTRUCTIONWIREPASSWORD}`
+      ).toString('base64');
+      headers['Authorization'] = `Basic ${credentials}`;
+    }
+    this.logger.logAuthEvent('basic_auth_setup', true, {
+      authType: 'basic',
+      message: 'Basic auth credentials applied',
+      hasCredentials: !!(this.config.cONSTRUCTIONWIREUSERNAME && this.config.cONSTRUCTIONWIREPASSWORD)
     });
-    return {};
+    return headers;
   }
 
   /**
-   * Initialize the client (for OAuth clients that need initialization)
+   * Initialize the client
    */
   async initialize(): Promise<void> {
-    await this.oauthClient.initialize();
-    this.logger.info('CLIENT_INITIALIZE', 'ConstructionWire OAuth client initialized');
+    this.logger.info('CLIENT_INITIALIZE', 'ConstructionWire client initialized');
   }
 
   /**
@@ -240,28 +241,26 @@ export class ConstructionwireClient {
     if (options?.signal) {
       config.signal = options.signal;
     }
-    // Get OAuth token for ConstructionWire
-    this.logger.info('REQUEST_AUTH', 'Applying ConstructionWire OAuth authentication', {
-      authType: 'basic+bearer',
-      requestUrl: config.url,
-      hasOAuthClient: !!this.oauthClient
+
+    // Apply basic auth headers
+    this.logger.info('REQUEST_AUTH', 'Applying ConstructionWire Basic authentication', {
+      authType: 'basic',
+      requestUrl: config.url
     });
-    
-    const accessToken = await this.oauthClient.getValidAccessToken();
+
     config.headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       ...config.headers,
-      'Authorization': `Bearer ${accessToken}`
+      ...this.getAuthHeaders()
     };
-    
-    this.logger.logAuthEvent('oauth_token_applied', true, {
-      authType: 'basic+bearer',
-      tokenPreview: accessToken ? accessToken.substring(0, 8) + '...' : 'null',
+
+    this.logger.logAuthEvent('basic_auth_applied', true, {
+      authType: 'basic',
       header: 'Authorization',
-      tokenSource: 'constructionwire_oauth'
+      tokenSource: 'constructionwire_basic'
     });
-    
+
     return this.httpClient.request(config);
   }
 
