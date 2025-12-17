@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.4...v1.1.5) (2025-12-17)
+
+
+### Bug Fixes
+
+* update package name in README to @west10tech/constructionwire-mcp ([620845a](https://github.com/w-10-m/constructionwire-mcp/commit/620845acb1f03eeb37cde31bf6fd008f148dfea6))
+
 ## [1.1.4](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.3...v1.1.4) (2025-12-17)
 
 
