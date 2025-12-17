@@ -88,7 +88,7 @@ This MCP server provides 75 tools across 1 integrations:
 ## Installation
 
 ```bash
-npm install constructionwire-mcp-b8c9d0e1-f2a3-4456-b789-890123456789
+npm install @west10tech/constructionwire-mcp
 ```
 
 ## Environment Setup
@@ -121,7 +121,7 @@ Add this to your Claude Desktop configuration:
   "mcpServers": {
     "constructionwire-mcp": {
       "command": "npx",
-      "args": ["constructionwire-mcp-b8c9d0e1-f2a3-4456-b789-890123456789"],
+      "args": ["@west10tech/constructionwire-mcp"],
       "env": {
         "CONSTRUCTIONWIRE_PASSWORD": "your_constructionwire_password_here",
         "CONSTRUCTIONWIRE_USERNAME": "your_constructionwire_username_here"
