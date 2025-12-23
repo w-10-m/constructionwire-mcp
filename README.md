@@ -1,6 +1,10 @@
 # constructionwire-mcp
 
-MCP server with full constructionwire capabilities (75 endpoints)
+[![npm version](https://img.shields.io/npm/v/@west10tech/constructionwire-mcp.svg)](https://www.npmjs.com/package/@west10tech/constructionwire-mcp)
+
+MCP server with full ConstructionWire capabilities (75 endpoints)
+
+**npm:** https://www.npmjs.com/package/@west10tech/constructionwire-mcp
 
 This MCP server includes the following integrations:
 
