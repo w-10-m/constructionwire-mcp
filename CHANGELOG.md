@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.5...v1.1.6) (2025-12-23)
+
+
+### Bug Fixes
+
+* update README with correct package information ([13c63fa](https://github.com/w-10-m/constructionwire-mcp/commit/13c63fab14b0619bd6b2112ef4401aa63984f2e7))
+
 ## [1.1.5](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.4...v1.1.5) (2025-12-17)
 
 
