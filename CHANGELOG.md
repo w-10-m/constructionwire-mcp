@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.2.0...v1.3.0) (2025-12-24)
+
+
+### Features
+
+* add unit tests with 86.95% coverage ([e29ac7e](https://github.com/w-10-m/constructionwire-mcp/commit/e29ac7ee6d944ab654f849ec886a657eae132fc2))
+
 # [1.2.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.1.6...v1.2.0) (2025-12-24)
 
 
