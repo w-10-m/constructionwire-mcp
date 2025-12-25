@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.3.0...v1.4.0) (2025-12-25)
+
+
+### Features
+
+* add E2E test infrastructure ([a5e264e](https://github.com/w-10-m/constructionwire-mcp/commit/a5e264e8a51a712e0216aadd9ebd8fdd52c9c0cb))
+* improve test coverage to 93%+ ([81cea7b](https://github.com/w-10-m/constructionwire-mcp/commit/81cea7b8e5dd3d6e5f075bd7df88603e5a32de4e))
+
 # [1.3.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.2.0...v1.3.0) (2025-12-24)
 
 
