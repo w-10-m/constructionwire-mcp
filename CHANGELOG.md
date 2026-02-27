@@ -1,3 +1,14 @@
+# [2.1.0](https://github.com/w-10-m/constructionwire-mcp/compare/v2.0.1...v2.1.0) (2026-02-27)
+
+
+### Features
+
+* add client and tools test coverage (W10-95) ([1d86e31](https://github.com/w-10-m/constructionwire-mcp/commit/1d86e31169c5732676297b7e87920c9b16d086b7))
+* add HTTP/SSE transport support (W10-99) ([1e15abb](https://github.com/w-10-m/constructionwire-mcp/commit/1e15abb2e8088deefd1d543dafdf9e70fc89bd95))
+* add retry logic with exponential backoff (W10-94) ([071ca6b](https://github.com/w-10-m/constructionwire-mcp/commit/071ca6ba7418ef80b359d2d6e869b7c20a8ac7e9))
+* add typed request/response interfaces (W10-93) ([22f4316](https://github.com/w-10-m/constructionwire-mcp/commit/22f4316acfd281bfd74721a824f87aae934c9b7d))
+* configure ESLint and add lint + E2E tests to CI (W10-97, W10-92) ([2ae3134](https://github.com/w-10-m/constructionwire-mcp/commit/2ae31345a9faba562647a1fdd1d6df9edfc9cff0))
+
 ## [2.0.1](https://github.com/w-10-m/constructionwire-mcp/compare/v2.0.0...v2.0.1) (2026-02-27)
 
 
