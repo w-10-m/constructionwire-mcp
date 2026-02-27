@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import axios, { AxiosInstance } from 'axios';
 import { Logger } from '../services/logger.js';
-import { RequestOptions, ProgressCallback } from '../types.js';
+import { RequestOptions, ProgressCallback, ToolResult } from '../types.js';
 
 export interface ConstructionwireClientConfig {
   constructionwireUsername?: string;
@@ -312,7 +312,7 @@ export class ConstructionwireClient {
     return path;
   }
 
-  async reportsList(params: any, options?: RequestOptions): Promise<any> {
+  async reportsList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_list',
@@ -443,7 +443,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsGet(params: any, options?: RequestOptions): Promise<any> {
+  async reportsGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_get',
@@ -574,7 +574,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsFiles(params: any, options?: RequestOptions): Promise<any> {
+  async reportsFiles(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_files',
@@ -705,7 +705,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsFile(params: any, options?: RequestOptions): Promise<any> {
+  async reportsFile(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_file',
@@ -836,7 +836,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsNotes(params: any, options?: RequestOptions): Promise<any> {
+  async reportsNotes(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_notes',
@@ -967,7 +967,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsNote(params: any, options?: RequestOptions): Promise<any> {
+  async reportsNote(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_note',
@@ -1098,7 +1098,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsQuestions(params: any, options?: RequestOptions): Promise<any> {
+  async reportsQuestions(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_questions',
@@ -1229,7 +1229,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsAddQuestion(params: any, options?: RequestOptions): Promise<any> {
+  async reportsAddQuestion(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_add_question',
@@ -1360,7 +1360,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsQuestion(params: any, options?: RequestOptions): Promise<any> {
+  async reportsQuestion(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_question',
@@ -1491,7 +1491,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsAnswers(params: any, options?: RequestOptions): Promise<any> {
+  async reportsAnswers(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_answers',
@@ -1622,7 +1622,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsAnswer(params: any, options?: RequestOptions): Promise<any> {
+  async reportsAnswer(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_answer',
@@ -1753,7 +1753,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsTasks(params: any, options?: RequestOptions): Promise<any> {
+  async reportsTasks(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_tasks',
@@ -1884,7 +1884,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsTask(params: any, options?: RequestOptions): Promise<any> {
+  async reportsTask(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_task',
@@ -2015,7 +2015,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsFacets(params: any, options?: RequestOptions): Promise<any> {
+  async reportsFacets(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_facets',
@@ -2146,7 +2146,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsFileTerms(params: any, options?: RequestOptions): Promise<any> {
+  async reportsFileTerms(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_file_terms',
@@ -2277,7 +2277,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsAddFileTerms(params: any, options?: RequestOptions): Promise<any> {
+  async reportsAddFileTerms(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_add_file_terms',
@@ -2408,7 +2408,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsFollow(params: any, options?: RequestOptions): Promise<any> {
+  async reportsFollow(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_follow',
@@ -2539,7 +2539,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsUnfollow(params: any, options?: RequestOptions): Promise<any> {
+  async reportsUnfollow(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_unfollow',
@@ -2670,7 +2670,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsFollowing(params: any, options?: RequestOptions): Promise<any> {
+  async reportsFollowing(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_following',
@@ -2801,7 +2801,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async reportsAllQuestions(params: any, options?: RequestOptions): Promise<any> {
+  async reportsAllQuestions(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'reports_all_questions',
@@ -2932,7 +2932,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesList(params: any, options?: RequestOptions): Promise<any> {
+  async companiesList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_list',
@@ -3063,7 +3063,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesGet(params: any, options?: RequestOptions): Promise<any> {
+  async companiesGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_get',
@@ -3194,7 +3194,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesLocations(params: any, options?: RequestOptions): Promise<any> {
+  async companiesLocations(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_locations',
@@ -3325,7 +3325,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesLocation(params: any, options?: RequestOptions): Promise<any> {
+  async companiesLocation(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_location',
@@ -3456,7 +3456,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesPeople(params: any, options?: RequestOptions): Promise<any> {
+  async companiesPeople(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_people',
@@ -3587,7 +3587,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesProjects(params: any, options?: RequestOptions): Promise<any> {
+  async companiesProjects(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_projects',
@@ -3718,7 +3718,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesRelationships(params: any, options?: RequestOptions): Promise<any> {
+  async companiesRelationships(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_relationships',
@@ -3849,7 +3849,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesStats(params: any, options?: RequestOptions): Promise<any> {
+  async companiesStats(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_stats',
@@ -3980,7 +3980,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesFacets(params: any, options?: RequestOptions): Promise<any> {
+  async companiesFacets(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_facets',
@@ -4111,7 +4111,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesFollowing(params: any, options?: RequestOptions): Promise<any> {
+  async companiesFollowing(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_following',
@@ -4242,7 +4242,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesFollow(params: any, options?: RequestOptions): Promise<any> {
+  async companiesFollow(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_follow',
@@ -4373,7 +4373,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesUnfollow(params: any, options?: RequestOptions): Promise<any> {
+  async companiesUnfollow(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_unfollow',
@@ -4504,7 +4504,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async companiesAllLocations(params: any, options?: RequestOptions): Promise<any> {
+  async companiesAllLocations(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'companies_all_locations',
@@ -4635,7 +4635,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleList(params: any, options?: RequestOptions): Promise<any> {
+  async peopleList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_list',
@@ -4766,7 +4766,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleGet(params: any, options?: RequestOptions): Promise<any> {
+  async peopleGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_get',
@@ -4897,7 +4897,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleProjects(params: any, options?: RequestOptions): Promise<any> {
+  async peopleProjects(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_projects',
@@ -5028,7 +5028,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleRelationships(params: any, options?: RequestOptions): Promise<any> {
+  async peopleRelationships(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_relationships',
@@ -5159,7 +5159,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleStats(params: any, options?: RequestOptions): Promise<any> {
+  async peopleStats(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_stats',
@@ -5290,7 +5290,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleFacets(params: any, options?: RequestOptions): Promise<any> {
+  async peopleFacets(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_facets',
@@ -5421,7 +5421,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleFollowing(params: any, options?: RequestOptions): Promise<any> {
+  async peopleFollowing(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_following',
@@ -5552,7 +5552,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleFollow(params: any, options?: RequestOptions): Promise<any> {
+  async peopleFollow(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_follow',
@@ -5683,7 +5683,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async peopleUnfollow(params: any, options?: RequestOptions): Promise<any> {
+  async peopleUnfollow(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'people_unfollow',
@@ -5814,7 +5814,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async foldersList(params: any, options?: RequestOptions): Promise<any> {
+  async foldersList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'folders_list',
@@ -5945,7 +5945,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async foldersCreate(params: any, options?: RequestOptions): Promise<any> {
+  async foldersCreate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'folders_create',
@@ -6076,7 +6076,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async foldersGet(params: any, options?: RequestOptions): Promise<any> {
+  async foldersGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'folders_get',
@@ -6207,7 +6207,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async foldersUpdate(params: any, options?: RequestOptions): Promise<any> {
+  async foldersUpdate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'folders_update',
@@ -6338,7 +6338,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async foldersDelete(params: any, options?: RequestOptions): Promise<any> {
+  async foldersDelete(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'folders_delete',
@@ -6469,7 +6469,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async foldersAddItem(params: any, options?: RequestOptions): Promise<any> {
+  async foldersAddItem(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'folders_add_item',
@@ -6600,7 +6600,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async notesList(params: any, options?: RequestOptions): Promise<any> {
+  async notesList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'notes_list',
@@ -6731,7 +6731,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async notesCreate(params: any, options?: RequestOptions): Promise<any> {
+  async notesCreate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'notes_create',
@@ -6862,7 +6862,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async notesGet(params: any, options?: RequestOptions): Promise<any> {
+  async notesGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'notes_get',
@@ -6993,7 +6993,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async notesUpdate(params: any, options?: RequestOptions): Promise<any> {
+  async notesUpdate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'notes_update',
@@ -7124,7 +7124,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async notesDelete(params: any, options?: RequestOptions): Promise<any> {
+  async notesDelete(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'notes_delete',
@@ -7255,7 +7255,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async newsList(params: any, options?: RequestOptions): Promise<any> {
+  async newsList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'news_list',
@@ -7386,7 +7386,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async newsGet(params: any, options?: RequestOptions): Promise<any> {
+  async newsGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'news_get',
@@ -7517,7 +7517,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async searchesList(params: any, options?: RequestOptions): Promise<any> {
+  async searchesList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'searches_list',
@@ -7648,7 +7648,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async searchesCreate(params: any, options?: RequestOptions): Promise<any> {
+  async searchesCreate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'searches_create',
@@ -7779,7 +7779,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async searchesGet(params: any, options?: RequestOptions): Promise<any> {
+  async searchesGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'searches_get',
@@ -7910,7 +7910,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async searchesUpdate(params: any, options?: RequestOptions): Promise<any> {
+  async searchesUpdate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'searches_update',
@@ -8041,7 +8041,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async subscriptionsCreateFree(params: any, options?: RequestOptions): Promise<any> {
+  async subscriptionsCreateFree(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'subscriptions_create_free',
@@ -8172,7 +8172,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async subscriptionsUsage(params: any, options?: RequestOptions): Promise<any> {
+  async subscriptionsUsage(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'subscriptions_usage',
@@ -8303,7 +8303,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async tasksList(params: any, options?: RequestOptions): Promise<any> {
+  async tasksList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'tasks_list',
@@ -8434,7 +8434,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async tasksCreate(params: any, options?: RequestOptions): Promise<any> {
+  async tasksCreate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'tasks_create',
@@ -8565,7 +8565,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async tasksGet(params: any, options?: RequestOptions): Promise<any> {
+  async tasksGet(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'tasks_get',
@@ -8696,7 +8696,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async tasksUpdate(params: any, options?: RequestOptions): Promise<any> {
+  async tasksUpdate(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'tasks_update',
@@ -8827,7 +8827,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async tasksDelete(params: any, options?: RequestOptions): Promise<any> {
+  async tasksDelete(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'tasks_delete',
@@ -8958,7 +8958,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async authLogin(params: any, options?: RequestOptions): Promise<any> {
+  async authLogin(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'auth_login',
@@ -9089,7 +9089,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async authDetails(params: any, options?: RequestOptions): Promise<any> {
+  async authDetails(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'auth_details',
@@ -9220,7 +9220,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async authLogout(params: any, options?: RequestOptions): Promise<any> {
+  async authLogout(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'auth_logout',
@@ -9351,7 +9351,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async authSubscription(params: any, options?: RequestOptions): Promise<any> {
+  async authSubscription(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'auth_subscription',
@@ -9482,7 +9482,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async commonGetList(params: any, options?: RequestOptions): Promise<any> {
+  async commonGetList(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'common_get_list',
@@ -9613,7 +9613,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async commonRetailChains(params: any, options?: RequestOptions): Promise<any> {
+  async commonRetailChains(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'common_retail_chains',
@@ -9744,7 +9744,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async commonStates(params: any, options?: RequestOptions): Promise<any> {
+  async commonStates(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'common_states',
@@ -9875,7 +9875,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async commonCounties(params: any, options?: RequestOptions): Promise<any> {
+  async commonCounties(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'common_counties',
@@ -10006,7 +10006,7 @@ export class ConstructionwireClient {
     }
   }
 
-  async commonRegions(params: any, options?: RequestOptions): Promise<any> {
+  async commonRegions(params: any, options?: RequestOptions): Promise<ToolResult> {
     const startTime = Date.now();
     this.logger.info('ENDPOINT_START', 'Endpoint execution started', {
       endpoint: 'common_regions',
