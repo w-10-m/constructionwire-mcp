@@ -1,3 +1,26 @@
+# [2.0.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.4.0...v2.0.0) (2026-02-27)
+
+
+* feat!: complete Phase 1 cleanup for v2.0.0 public release ([daa8909](https://github.com/w-10-m/constructionwire-mcp/commit/daa89092250b6c16c6cf21d8526578e5c9677a59))
+
+
+### Bug Fixes
+
+* add descriptions to 6 undocumented tool definitions (W10-91) ([2d22e0b](https://github.com/w-10-m/constructionwire-mcp/commit/2d22e0be6ffdd3d897d0e872b6fe4c28af4ad152))
+
+
+### BREAKING CHANGES
+
+* Environment variables renamed from cONSTRUCTIONWIRE_* to CONSTRUCTIONWIRE_*
+
+- Remove 75 DEBUG comments from client (W10-134)
+- Fix HTML entities in README tool descriptions (W10-139)
+- Fill in 6 blank tool descriptions in README
+- Replace COMING SOON with credential setup instructions (W10-138)
+- Add coverage/ and sales docs to .gitignore for public repo (W10-141)
+- Update CHANGELOG with v2.0.0 entry (W10-140)
+- Add MIT LICENSE file (W10-137)
+
 # [2.0.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.4.0...v2.0.0) (2026-02-26)
 
 
