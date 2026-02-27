@@ -2,6 +2,7 @@
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import {
   CallToolRequestSchema,
   ErrorCode,
@@ -9,6 +10,7 @@ import {
   McpError,
   CancelledNotificationSchema,
 } from '@modelcontextprotocol/sdk/types.js';
+import { createServer } from 'http';
 import { config } from 'dotenv';
 import { loadConfig, validateConfig } from './config.js';
 import { LogShipper } from './services/log-shipper.js';
@@ -192,40 +194,100 @@ class ConstructionwireMcpServer {
   }
 
   async run() {
-    const transport = new StdioServerTransport();
-    await this.server.connect(transport);
-    
-    this.logger.info('SERVER_START', 'MCP server started successfully', {
-      serverName: 'constructionwire-mcp',
-      transport: 'stdio'
-    });
-    
-    console.error('constructionwire-mcp MCP server running on stdio');
-    
-    // Handle graceful shutdown for log shipping
+    const transportMode = process.env.TRANSPORT_MODE || 'stdio';
+
+    if (transportMode === 'http') {
+      await this.runHttp();
+    } else {
+      await this.runStdio();
+    }
+
+    // Handle graceful shutdown
     const shutdown = async () => {
       this.logger.info('SERVER_SHUTDOWN', 'MCP server shutting down', {
         serverName: 'constructionwire-mcp'
       });
-      
-      // Shutdown request tracking and progress reporting
+
       if (this.requestTracker) {
         this.requestTracker.shutdown();
       }
       if (this.progressReporter) {
         this.progressReporter.shutdown();
       }
-      
-      // Shutdown logging
       if (this.logShipper) {
         await this.logShipper.shutdown();
       }
-      
+
       process.exit(0);
     };
-    
+
     process.on('SIGINT', shutdown);
     process.on('SIGTERM', shutdown);
+  }
+
+  private async runStdio() {
+    const transport = new StdioServerTransport();
+    await this.server.connect(transport);
+
+    this.logger.info('SERVER_START', 'MCP server started successfully', {
+      serverName: 'constructionwire-mcp',
+      transport: 'stdio'
+    });
+
+    console.error('constructionwire-mcp MCP server running on stdio');
+  }
+
+  private async runHttp() {
+    const port = parseInt(process.env.PORT || '3000', 10);
+    const transport = new StreamableHTTPServerTransport({
+      sessionIdGenerator: undefined, // stateless mode
+    });
+
+    await this.server.connect(transport);
+
+    const httpServer = createServer(async (req, res) => {
+      // CORS headers
+      res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, mcp-session-id');
+      res.setHeader('Access-Control-Expose-Headers', 'mcp-session-id');
+
+      if (req.method === 'OPTIONS') {
+        res.writeHead(204);
+        res.end();
+        return;
+      }
+
+      // Health check
+      if (req.method === 'GET' && req.url === '/health') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ status: 'ok', server: 'constructionwire-mcp' }));
+        return;
+      }
+
+      // Parse request body for POST
+      if (req.method === 'POST') {
+        const chunks: Buffer[] = [];
+        for await (const chunk of req) {
+          chunks.push(chunk as Buffer);
+        }
+        const body = JSON.parse(Buffer.concat(chunks).toString());
+        await transport.handleRequest(req, res, body);
+        return;
+      }
+
+      // Handle GET (SSE) and DELETE (session cleanup)
+      await transport.handleRequest(req, res);
+    });
+
+    httpServer.listen(port, () => {
+      this.logger.info('SERVER_START', 'MCP server started successfully', {
+        serverName: 'constructionwire-mcp',
+        transport: 'http',
+        port
+      });
+      console.error(`constructionwire-mcp MCP server running on http://localhost:${port}`);
+    });
   }
 }
 
