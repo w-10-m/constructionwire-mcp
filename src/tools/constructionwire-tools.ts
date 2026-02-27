@@ -6901,7 +6901,7 @@ export class ConstructionwireTools {
       },
       {
         name: 'constructionwire_auth_subscription',
-        description: '',
+        description: 'Get subscription details for the authenticated session.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -6911,7 +6911,7 @@ export class ConstructionwireTools {
       },
       {
         name: 'constructionwire_common_get_list',
-        description: '',
+        description: 'Get a common reference list by ID (e.g. project types, stages, roles).',
         inputSchema: {
           type: 'object',
           properties: {
@@ -6929,17 +6929,17 @@ export class ConstructionwireTools {
       },
       {
         name: 'constructionwire_common_retail_chains',
-        description: '',
+        description: 'List retail chains. Optionally filter by keyword.',
         inputSchema: {
           type: 'object',
           properties: {
             keyword: {
               type: 'string',
-              description: ''
+              description: 'Search keyword to filter retail chains'
             },
             option: {
               type: 'string',
-              description: ''
+              description: 'Additional filter option'
             }
           },
           required: []
@@ -6947,7 +6947,7 @@ export class ConstructionwireTools {
       },
       {
         name: 'constructionwire_common_states',
-        description: '',
+        description: 'List US states.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -6957,13 +6957,13 @@ export class ConstructionwireTools {
       },
       {
         name: 'constructionwire_common_counties',
-        description: '',
+        description: 'List counties for a given US state.',
         inputSchema: {
           type: 'object',
           properties: {
             stateAbbr: {
               type: 'string',
-              description: ''
+              description: 'Two-letter US state abbreviation (e.g. TX, CA, NY)'
             },
             state: {
               type: 'array',
@@ -6975,7 +6975,7 @@ export class ConstructionwireTools {
       },
       {
         name: 'constructionwire_common_regions',
-        description: '',
+        description: 'List US state regions.',
         inputSchema: {
           type: 'object',
           properties: {
