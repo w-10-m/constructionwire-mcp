@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios, { AxiosInstance } from 'axios';
 import { Logger } from '../services/logger.js';
 import { RequestOptions, ProgressCallback } from '../types.js';
@@ -314,8 +315,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -445,8 +446,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -576,8 +577,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -707,8 +708,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -838,8 +839,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -969,8 +970,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -1100,8 +1101,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -1231,8 +1232,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -1362,8 +1363,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -1493,8 +1494,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -1624,8 +1625,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -1755,8 +1756,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -1886,8 +1887,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -2017,8 +2018,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -2148,8 +2149,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -2279,8 +2280,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -2410,8 +2411,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -2541,8 +2542,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -2672,8 +2673,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -2803,8 +2804,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -2934,8 +2935,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3065,8 +3066,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3196,8 +3197,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3327,8 +3328,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3458,8 +3459,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3589,8 +3590,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3720,8 +3721,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3851,8 +3852,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -3982,8 +3983,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -4113,8 +4114,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -4244,8 +4245,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -4375,8 +4376,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -4506,8 +4507,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -4637,8 +4638,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -4768,8 +4769,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -4899,8 +4900,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -5030,8 +5031,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -5161,8 +5162,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -5292,8 +5293,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -5423,8 +5424,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -5554,8 +5555,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -5685,8 +5686,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -5816,8 +5817,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -5947,8 +5948,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -6078,8 +6079,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -6209,8 +6210,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -6340,8 +6341,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -6471,8 +6472,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -6602,8 +6603,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -6733,8 +6734,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -6864,8 +6865,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -6995,8 +6996,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -7126,8 +7127,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -7257,8 +7258,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -7388,8 +7389,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -7519,8 +7520,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -7650,8 +7651,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -7781,8 +7782,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -7912,8 +7913,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -8043,8 +8044,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -8174,8 +8175,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -8305,8 +8306,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -8436,8 +8437,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -8567,8 +8568,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -8698,8 +8699,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -8829,8 +8830,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -8960,8 +8961,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -9091,8 +9092,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -9222,8 +9223,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters default to body for backward compatibility
       for (const [key, value] of Object.entries(params)) {
@@ -9353,8 +9354,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -9484,8 +9485,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -9615,8 +9616,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -9746,8 +9747,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -9877,8 +9878,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {
@@ -10008,8 +10009,8 @@ export class ConstructionwireClient {
       });
       
       // Check if any parameter has raw_array flag
-      let hasRawArrayBody = false;
-      let rawBodyData: any = undefined;
+      const hasRawArrayBody = false;
+      const rawBodyData: any = undefined;
       
       // Any remaining unprocessed parameters go to query string for GET/DELETE methods
       for (const [key, value] of Object.entries(params)) {

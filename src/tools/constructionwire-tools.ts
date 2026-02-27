@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ConstructionwireClient } from '../clients/constructionwire-client.js';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { Logger } from '../services/logger.js';

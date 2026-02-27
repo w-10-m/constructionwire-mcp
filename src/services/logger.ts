@@ -4,7 +4,7 @@
  */
 
 import { LogBatcher } from './log-batcher.js';
-import { LogShipper, LogEntry } from './log-shipper.js';
+import { LogShipper } from './log-shipper.js';
 
 export type LogLevel = 'DEBUG' | 'INFO' | 'WARN' | 'ERROR' | 'FATAL';
 

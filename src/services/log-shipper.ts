@@ -214,7 +214,6 @@ export class LogShipper {
    * Map component values to API-accepted enum values
    */
   private mapComponentToValidEnum(component: string): string {
-    const validComponents = ['client', 'tools', 'oauth-client'];
     const componentMap: Record<string, string> = {
       'server': 'client',
       'client': 'client',
@@ -231,7 +230,6 @@ export class LogShipper {
    * Map log level to API-accepted enum values (lowercase)
    */
   private mapLogLevelToValidEnum(level: string): string {
-    const validLevels = ['info', 'error', 'warn', 'debug'];
     const levelMap: Record<string, string> = {
       'info': 'info',
       'error': 'error', 

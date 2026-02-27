@@ -220,7 +220,7 @@ export class RequestTracker {
     });
 
     // Cancel all active requests
-    for (const [requestId, context] of this.activeRequests.entries()) {
+    for (const [, context] of this.activeRequests.entries()) {
       if (!context.abortController.signal.aborted) {
         context.abortController.abort('Server shutting down');
       }

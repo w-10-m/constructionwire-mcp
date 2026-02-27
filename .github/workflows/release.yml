@@ -27,8 +27,10 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+      - run: npm run lint
       - run: npm run build
       - run: npm test -- --coverage
+      - run: npm run test:e2e
 
       - name: Extract coverage percentage
         if: github.ref == 'refs/heads/main'
