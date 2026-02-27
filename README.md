@@ -1,150 +1,262 @@
-# constructionwire-mcp
+# ConstructionWire MCP Server
 
 [![npm version](https://img.shields.io/npm/v/@west10tech/constructionwire-mcp.svg)](https://www.npmjs.com/package/@west10tech/constructionwire-mcp)
 [![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/gcaliene/e177e65e8223aaafa5a22501affb8b00/raw/coverage.json)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![MCP SDK](https://img.shields.io/badge/MCP%20SDK-1.27.1-green.svg)](https://modelcontextprotocol.io)
 
-MCP server with full ConstructionWire capabilities (75 endpoints)
+A production-ready [Model Context Protocol](https://modelcontextprotocol.io) server that provides full access to the [ConstructionWire API](https://www.constructionwire.com) — 75 tools covering construction project intelligence, company data, people tracking, and more.
 
-**npm:** https://www.npmjs.com/package/@west10tech/constructionwire-mcp
+## Features
 
-This MCP server includes the following integrations:
+| Feature | Details |
+|---------|---------|
+| **75 API Tools** | Complete coverage of ConstructionWire API v2.0 |
+| **Typed Interfaces** | TypeScript parameter/response types for all endpoints |
+| **Retry Logic** | Exponential backoff with jitter for transient failures |
+| **Progress Notifications** | Real-time progress updates for long-running operations |
+| **Request Cancellation** | Full MCP cancellation protocol support |
+| **Structured Logging** | JSON logging with optional centralized log shipping |
+| **Rate Limiting** | Configurable request throttling |
 
-## Available Tools
+## Quick Start
 
-This MCP server provides 75 tools across 1 integrations:
-
-### Constructionwire Tools
-- **constructionwire_reports_list**: List Construction Projects. Returns minimal data appropriate for app search list views. To retrieve complete details, use endpoint /reports/{reportId}. Lets make sure PageSize is max 10.
-- **constructionwire_reports_get**: Get a Construction Project. To retrieve multiple, use multiple id (e.g /reports/100?reportTypeId=1&id=101&id=102).
-- **constructionwire_reports_files**: List Project Files (e.g. Plans/Specs). Set keywordsIn=12 in query to search files (e.g. /reports?reportType=1&keywords={term}&keywordsIn=12).
-- **constructionwire_reports_file**: Get a Project File (e.g. Plans/Specs)
-- **constructionwire_reports_notes**: List Project Notes
-- **constructionwire_reports_note**: Get a Project Note
-- **constructionwire_reports_questions**: List Project Questions
-- **constructionwire_reports_add_question**: Create a Project Question
-- **constructionwire_reports_question**: Get a Project Question
-- **constructionwire_reports_answers**: List Answers to a Question
-- **constructionwire_reports_answer**: Get an Answer to a Question
-- **constructionwire_reports_tasks**: List Project Tasks
-- **constructionwire_reports_task**: Get a Project Task
-- **constructionwire_reports_facets**: List Construction Project Facets
-- **constructionwire_reports_file_terms**: Get Terms and Conditions for Project Files
-- **constructionwire_reports_add_file_terms**: Set request body to "true" to indicate that you read and agree to BuildCentral's Terms and Conditions. Read terms at /2.0/reports/files/terms.
-- **constructionwire_reports_follow**: Create a Project Following
-- **constructionwire_reports_unfollow**: Delete a Project Following
-- **constructionwire_reports_following**: List Project Followings
-- **constructionwire_reports_all_questions**: List Project Questions
-- **constructionwire_companies_list**: List Companies
-- **constructionwire_companies_get**: Get a Company
-- **constructionwire_companies_locations**: List Company Locations
-- **constructionwire_companies_location**: Get a Company Location
-- **constructionwire_companies_people**: List Company's People
-- **constructionwire_companies_projects**: List Company's Project Activities
-- **constructionwire_companies_relationships**: List Company's Relationships
-- **constructionwire_companies_stats**: List Company's Stats
-- **constructionwire_companies_facets**: List Company Facets
-- **constructionwire_companies_following**: List Company Followings
-- **constructionwire_companies_follow**: Create a Company Following
-- **constructionwire_companies_unfollow**: Delete a Company Following
-- **constructionwire_companies_all_locations**: List Locations of multiple Companies
-- **constructionwire_people_list**: List People
-- **constructionwire_people_get**: Get a Person
-- **constructionwire_people_projects**: List Person's Project Activities
-- **constructionwire_people_relationships**: List Person's Relationships
-- **constructionwire_people_stats**: List Person's Stats
-- **constructionwire_people_facets**: List People Facets
-- **constructionwire_people_following**: List People Followings
-- **constructionwire_people_follow**: Create a Person Following
-- **constructionwire_people_unfollow**: Delete a Person Following
-- **constructionwire_folders_list**: List Folders
-- **constructionwire_folders_create**: Create a Folder
-- **constructionwire_folders_get**: Get a Folder
-- **constructionwire_folders_update**: Update a Folder
-- **constructionwire_folders_delete**: Delete a Folder
-- **constructionwire_folders_add_item**: Save Items to a Folder
-- **constructionwire_notes_list**: List Notes
-- **constructionwire_notes_create**: Create a Note
-- **constructionwire_notes_get**: Get a Note
-- **constructionwire_notes_update**: Update a Note
-- **constructionwire_notes_delete**: Delete a Note
-- **constructionwire_news_list**: List Product News
-- **constructionwire_news_get**: Get a Product News
-- **constructionwire_searches_list**: List Saved Searches
-- **constructionwire_searches_create**: Create a Saved Search
-- **constructionwire_searches_get**: Get a Saved Search
-- **constructionwire_searches_update**: Update a Saved Search
-- **constructionwire_subscriptions_create_free**: Create a Free Subscription
-- **constructionwire_subscriptions_usage**: List Subscription Usage Reports
-- **constructionwire_tasks_list**: List Tasks
-- **constructionwire_tasks_create**: Create a Task
-- **constructionwire_tasks_get**: Get a Task
-- **constructionwire_tasks_update**: Update a Task
-- **constructionwire_tasks_delete**: Delete a Task
-- **constructionwire_auth_login**: Create an Access Token
-- **constructionwire_auth_details**: List Authenticated Session Details
-- **constructionwire_auth_logout**: Logout from Authenticated Session
-- **constructionwire_auth_subscription**: Get Subscription Details for the Authenticated Session
-- **constructionwire_common_get_list**: Get a Common List by ID
-- **constructionwire_common_retail_chains**: List Retail Chains
-- **constructionwire_common_states**: List US States
-- **constructionwire_common_counties**: List Counties for a State
-- **constructionwire_common_regions**: List US State Regions
-
-## Installation
+### Install
 
 ```bash
 npm install @west10tech/constructionwire-mcp
 ```
 
-## Environment Setup
+### Configure
 
-Create a `.env` file with the following variables:
+Set your ConstructionWire API credentials:
 
 ```env
-CONSTRUCTIONWIRE_PASSWORD=your_constructionwire_password_here
-CONSTRUCTIONWIRE_USERNAME=your_constructionwire_username_here
+CONSTRUCTIONWIRE_USERNAME=your_username
+CONSTRUCTIONWIRE_PASSWORD=your_password
 ```
 
-## Usage
+### Use with Claude Desktop
 
-### Running the server
-
-```bash
-# Development mode
-npm run dev
-
-# Production mode
-npm run build && npm start
-```
-
-### Using with Claude Desktop
-
-Add this to your Claude Desktop configuration:
+Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
 ```json
 {
   "mcpServers": {
-    "constructionwire-mcp": {
+    "constructionwire": {
       "command": "npx",
       "args": ["@west10tech/constructionwire-mcp"],
       "env": {
-        "CONSTRUCTIONWIRE_PASSWORD": "your_constructionwire_password_here",
-        "CONSTRUCTIONWIRE_USERNAME": "your_constructionwire_username_here"
+        "CONSTRUCTIONWIRE_USERNAME": "your_username",
+        "CONSTRUCTIONWIRE_PASSWORD": "your_password"
       }
     }
   }
 }
 ```
 
+### Use with Claude Code
+
+Add to your Claude Code settings:
+
+```json
+{
+  "mcpServers": {
+    "constructionwire": {
+      "command": "npx",
+      "args": ["@west10tech/constructionwire-mcp"],
+      "env": {
+        "CONSTRUCTIONWIRE_USERNAME": "your_username",
+        "CONSTRUCTIONWIRE_PASSWORD": "your_password"
+      }
+    }
+  }
+}
+```
+
+## Architecture
+
+```
+src/
+├── index.ts                    # MCP server entry point & handler setup
+├── config.ts                   # Environment configuration & validation
+├── types.ts                    # TypeScript interfaces & type definitions
+├── clients/
+│   └── constructionwire-client.ts  # HTTP client (75 endpoint methods)
+├── tools/
+│   └── constructionwire-tools.ts   # MCP tool definitions & routing
+└── services/
+    ├── logger.ts               # Structured JSON logging
+    ├── log-batcher.ts          # Log batching for shipping
+    ├── log-shipper.ts          # HTTP log shipping
+    ├── request-tracker.ts      # Request lifecycle & cancellation
+    └── progress-reporter.ts    # MCP progress notifications
+```
+
+```mermaid
+flowchart LR
+    Client[MCP Client] -->|JSON-RPC/stdio| Server[MCP Server]
+    Server --> Tools[Tool Router]
+    Tools --> API[ConstructionWire Client]
+    API -->|HTTPS + Basic Auth| CW[ConstructionWire API v2.0]
+    Server --> Logger[Structured Logger]
+    Logger -->|optional| Ship[Log Shipper]
+```
+
+## Available Tools (75)
+
+### Reports (20 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_reports_list` | List construction projects (search/filter) |
+| `constructionwire_reports_get` | Get a project by ID |
+| `constructionwire_reports_files` | List project files (plans/specs) |
+| `constructionwire_reports_file` | Get a specific project file |
+| `constructionwire_reports_notes` | List project notes |
+| `constructionwire_reports_note` | Get a project note |
+| `constructionwire_reports_questions` | List project questions |
+| `constructionwire_reports_add_question` | Create a project question |
+| `constructionwire_reports_question` | Get a project question |
+| `constructionwire_reports_answers` | List answers to a question |
+| `constructionwire_reports_answer` | Get an answer |
+| `constructionwire_reports_tasks` | List project tasks |
+| `constructionwire_reports_task` | Get a project task |
+| `constructionwire_reports_facets` | List project facets |
+| `constructionwire_reports_file_terms` | Get file terms & conditions |
+| `constructionwire_reports_add_file_terms` | Accept file terms & conditions |
+| `constructionwire_reports_follow` | Follow a project |
+| `constructionwire_reports_unfollow` | Unfollow a project |
+| `constructionwire_reports_following` | List followed projects |
+| `constructionwire_reports_all_questions` | List all project questions |
+
+### Companies (13 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_companies_list` | List companies (search/filter) |
+| `constructionwire_companies_get` | Get a company by ID |
+| `constructionwire_companies_locations` | List company locations |
+| `constructionwire_companies_location` | Get a company location |
+| `constructionwire_companies_people` | List company's people |
+| `constructionwire_companies_projects` | List company's project activities |
+| `constructionwire_companies_relationships` | List company's relationships |
+| `constructionwire_companies_stats` | Get company statistics |
+| `constructionwire_companies_facets` | List company facets |
+| `constructionwire_companies_following` | List followed companies |
+| `constructionwire_companies_follow` | Follow a company |
+| `constructionwire_companies_unfollow` | Unfollow a company |
+| `constructionwire_companies_all_locations` | List locations across companies |
+
+### People (9 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_people_list` | List people (search/filter) |
+| `constructionwire_people_get` | Get a person by ID |
+| `constructionwire_people_projects` | List person's project activities |
+| `constructionwire_people_relationships` | List person's relationships |
+| `constructionwire_people_stats` | Get person statistics |
+| `constructionwire_people_facets` | List people facets |
+| `constructionwire_people_following` | List followed people |
+| `constructionwire_people_follow` | Follow a person |
+| `constructionwire_people_unfollow` | Unfollow a person |
+
+### Folders (6 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_folders_list` | List folders |
+| `constructionwire_folders_create` | Create a folder |
+| `constructionwire_folders_get` | Get a folder |
+| `constructionwire_folders_update` | Update a folder |
+| `constructionwire_folders_delete` | Delete a folder |
+| `constructionwire_folders_add_item` | Add item to a folder |
+
+### Notes (5 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_notes_list` | List notes |
+| `constructionwire_notes_create` | Create a note |
+| `constructionwire_notes_get` | Get a note |
+| `constructionwire_notes_update` | Update a note |
+| `constructionwire_notes_delete` | Delete a note |
+
+### Tasks (5 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_tasks_list` | List tasks |
+| `constructionwire_tasks_create` | Create a task |
+| `constructionwire_tasks_get` | Get a task |
+| `constructionwire_tasks_update` | Update a task |
+| `constructionwire_tasks_delete` | Delete a task |
+
+### Saved Searches (4 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_searches_list` | List saved searches |
+| `constructionwire_searches_create` | Create a saved search |
+| `constructionwire_searches_get` | Get a saved search |
+| `constructionwire_searches_update` | Update a saved search |
+
+### Subscriptions (2 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_subscriptions_create_free` | Create a free subscription |
+| `constructionwire_subscriptions_usage` | Get subscription usage reports |
+
+### News (2 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_news_list` | List product news |
+| `constructionwire_news_get` | Get a product news entry |
+
+### Authentication (4 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_auth_login` | Create an access token |
+| `constructionwire_auth_details` | Get authenticated session details |
+| `constructionwire_auth_logout` | Logout from session |
+| `constructionwire_auth_subscription` | Get subscription for current session |
+
+### Common/Reference Data (5 tools)
+
+| Tool | Description |
+|------|-------------|
+| `constructionwire_common_get_list` | Get a common list by ID |
+| `constructionwire_common_retail_chains` | List retail chains |
+| `constructionwire_common_states` | List US states |
+| `constructionwire_common_counties` | List counties for a state |
+| `constructionwire_common_regions` | List US state regions |
+
+## Environment Variables
+
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `CONSTRUCTIONWIRE_USERNAME` | Yes | — | API username |
+| `CONSTRUCTIONWIRE_PASSWORD` | Yes | — | API password |
+| `CONSTRUCTIONWIRE_MAX_RETRIES` | No | `3` | Max retry attempts for transient failures |
+| `LOG_SHIPPING_ENABLED` | No | `false` | Enable centralized log shipping |
+| `LOG_INGESTION_URL` | No | — | Log shipping endpoint (HTTPS required) |
+| `LOG_INGESTION_API_KEY` | No | — | API key for log shipping |
+| `LOG_LEVEL` | No | `ERROR` | Log level: DEBUG, INFO, WARN, ERROR, FATAL |
+| `LOG_SHIPPING_BATCH_SIZE` | No | `500` | Logs per batch (1-1000) |
+| `LOG_SHIPPING_INTERVAL` | No | `5000` | Batch flush interval in ms (min 1000) |
+| `LOG_SHIPPING_MAX_RETRIES` | No | `3` | Log shipping retry attempts |
+
 ## Getting API Credentials
 
 ConstructionWire API access is provided through their Data Services team — there is no self-serve developer portal.
 
-### How to get credentials
-
-1. **Phone (fastest):** Call **+1 (866) 316-5300** during business hours (Mon–Fri, 9am–5pm Central) and ask for API access / Data Services.
+1. **Phone (fastest):** Call **+1 (866) 316-5300** (Mon-Fri, 9am-5pm Central) and ask for API access.
 2. **Email:** Send a request to **success.us@hubexo.com** asking for API trial credentials for `api.constructionwire.com`.
-3. **Free trial form:** Submit at [constructionwire.com/free-trial](https://info.buildcentral.com/free-trial-constructionwire) — this gives web access and enters the sales pipeline (API access may require a follow-up).
+3. **Free trial:** Submit at [constructionwire.com/free-trial](https://info.buildcentral.com/free-trial-constructionwire).
 
 ### References
 
@@ -152,52 +264,29 @@ ConstructionWire API access is provided through their Data Services team — the
 - [API Brochure (PDF)](https://www.constructionwire.com/Content/pdf/buildcentral_api.pdf)
 - [Data Services](https://www.constructionwire.com/DataServices)
 
-### Configuration
-
-Once you have credentials, set them as environment variables:
-
-```env
-CONSTRUCTIONWIRE_USERNAME=your_username
-CONSTRUCTIONWIRE_PASSWORD=your_password
-```
-
-The MCP uses these to authenticate via `constructionwire_auth_login` at startup.
-
 ## Advanced Features
+
+### Retry Logic
+
+The client automatically retries on transient failures (HTTP 429, 500, 502, 503, 504) with exponential backoff:
+
+- **Delay pattern:** 1s, 2s, 4s (with random jitter)
+- **Retry-After:** Respected when present in the response
+- **Configurable:** Set `CONSTRUCTIONWIRE_MAX_RETRIES=0` to disable
 
 ### Request Cancellation
 
-This MCP server supports request cancellation according to the [MCP cancellation specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/cancellation). Clients can cancel in-progress requests by sending a `notifications/cancelled` message with the request ID.
-
-When a request is cancelled:
-- The server immediately stops processing the request
-- Any ongoing API calls are aborted
-- Resources are cleaned up
-- No response is sent for the cancelled request
+Supports the [MCP cancellation specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/cancellation). Clients can cancel in-progress requests by sending `notifications/cancelled` with the request ID.
 
 ### Progress Notifications
 
-The server supports progress notifications for long-running operations according to the [MCP progress specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress). 
+Supports the [MCP progress specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/utilities/progress). Include a `progressToken` in your request metadata to receive `notifications/progress` updates.
 
-To receive progress updates:
-1. Include a `progressToken` in your request metadata
-2. The server will send `notifications/progress` messages with:
-   - Current progress value
-   - Total value (when known)
-   - Human-readable status messages
-
-Progress is reported for:
-- Multi-step operations
-- Batch processing
-- Long-running API calls
-- File uploads/downloads
-
-Example progress notification:
 ```json
 {
   "method": "notifications/progress",
   "params": {
-    "progressToken": "operation-123",
+    "progressToken": "op-123",
     "progress": 45,
     "total": 100,
     "message": "Processing item 45 of 100..."
@@ -205,3 +294,28 @@ Example progress notification:
 }
 ```
 
+## Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| `CONSTRUCTIONWIRE_USERNAME is required` | Set `CONSTRUCTIONWIRE_USERNAME` environment variable |
+| `401 Unauthorized` | Check credentials are correct; call CW support if locked out |
+| `429 Too Many Requests` | Reduce request frequency; retry logic handles this automatically |
+| `ECONNREFUSED` | Verify `api.constructionwire.com` is reachable from your network |
+| `Request timeout` | Increase timeout or check network connectivity |
+| Tools not appearing in Claude | Verify the MCP config JSON is valid and restart Claude |
+
+## Development
+
+```bash
+npm run dev        # Development mode with hot reload
+npm run build      # Compile TypeScript
+npm test           # Run unit tests (146 tests)
+npm run test:e2e   # Run E2E tests (26 tests)
+npm run test:all   # Run all tests
+npm run lint       # Run ESLint
+```
+
+## License
+
+MIT
