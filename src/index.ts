@@ -61,10 +61,9 @@ class ConstructionwireMcpServer {
     // Initialize template clients and tools
     // Regular client - pass configuration object
     this.constructionwireClient = new ConstructionwireClient({
-      authToken: process.env.CONSTRUCTIONWIRE_USERNAME,
-      cONSTRUCTIONWIREUSERNAME: process.env.CONSTRUCTIONWIRE_USERNAME,
-      cONSTRUCTIONWIREPASSWORD: process.env.CONSTRUCTIONWIRE_PASSWORD,
-      api_base_url: "https://api.constructionwire.com/v1",
+      constructionwireUsername: process.env.CONSTRUCTIONWIRE_USERNAME,
+      constructionwirePassword: process.env.CONSTRUCTIONWIRE_PASSWORD,
+      apiBaseUrl: 'https://api.constructionwire.com/v1',
       logger: this.logger
     });
     this.constructionwireTools = new ConstructionwireTools(this.constructionwireClient);

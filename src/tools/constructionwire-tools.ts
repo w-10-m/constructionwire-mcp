@@ -5,10 +5,9 @@ import { RequestContext } from '../services/request-tracker.js';
 import { ProgressReporter } from '../services/progress-reporter.js';
 
 export interface ConstructionwireToolsConfig {
-  cONSTRUCTIONWIREUSERNAME?: string;
-  cONSTRUCTIONWIREPASSWORD?: string;
-  api_base_url?: any;
-  authToken?: string;
+  constructionwireUsername?: string;
+  constructionwirePassword?: string;
+  apiBaseUrl?: string;
   logger?: Logger;
 }
 

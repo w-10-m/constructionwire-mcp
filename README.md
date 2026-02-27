@@ -15,8 +15,8 @@ This MCP server provides 75 tools across 1 integrations:
 
 ### Constructionwire Tools
 - **constructionwire_reports_list**: List Construction Projects. Returns minimal data appropriate for app search list views. To retrieve complete details, use endpoint /reports/{reportId}. Lets make sure PageSize is max 10.
-- **constructionwire_reports_get**: Get a Construction Project. To retrieve multiple, use multiple id (e.g /reports/100?reportTypeId&#x3D;1&amp;id&#x3D;101&amp;id&#x3D;102).
-- **constructionwire_reports_files**: List Project Files (e.g. Plans/Specs). Set keywordsIn&#x3D;12 in query to search files (e.g. /reports?reportType&#x3D;1&amp;keywords&#x3D;{term}&amp;keywordsIn&#x3D;12).
+- **constructionwire_reports_get**: Get a Construction Project. To retrieve multiple, use multiple id (e.g /reports/100?reportTypeId=1&id=101&id=102).
+- **constructionwire_reports_files**: List Project Files (e.g. Plans/Specs). Set keywordsIn=12 in query to search files (e.g. /reports?reportType=1&keywords={term}&keywordsIn=12).
 - **constructionwire_reports_file**: Get a Project File (e.g. Plans/Specs)
 - **constructionwire_reports_notes**: List Project Notes
 - **constructionwire_reports_note**: Get a Project Note
@@ -29,7 +29,7 @@ This MCP server provides 75 tools across 1 integrations:
 - **constructionwire_reports_task**: Get a Project Task
 - **constructionwire_reports_facets**: List Construction Project Facets
 - **constructionwire_reports_file_terms**: Get Terms and Conditions for Project Files
-- **constructionwire_reports_add_file_terms**: Set request body to &quot;true&quot; to indicate that you read and agree to BuildCentral&#x27;s Terms and Conditions. Read terms at /2.0/reports/files/terms.
+- **constructionwire_reports_add_file_terms**: Set request body to "true" to indicate that you read and agree to BuildCentral's Terms and Conditions. Read terms at /2.0/reports/files/terms.
 - **constructionwire_reports_follow**: Create a Project Following
 - **constructionwire_reports_unfollow**: Delete a Project Following
 - **constructionwire_reports_following**: List Project Followings
@@ -38,10 +38,10 @@ This MCP server provides 75 tools across 1 integrations:
 - **constructionwire_companies_get**: Get a Company
 - **constructionwire_companies_locations**: List Company Locations
 - **constructionwire_companies_location**: Get a Company Location
-- **constructionwire_companies_people**: List Company&#x27;s People
-- **constructionwire_companies_projects**: List Company&#x27;s Project Activities
-- **constructionwire_companies_relationships**: List Company&#x27;s Relationships
-- **constructionwire_companies_stats**: List Company&#x27;s Stats
+- **constructionwire_companies_people**: List Company's People
+- **constructionwire_companies_projects**: List Company's Project Activities
+- **constructionwire_companies_relationships**: List Company's Relationships
+- **constructionwire_companies_stats**: List Company's Stats
 - **constructionwire_companies_facets**: List Company Facets
 - **constructionwire_companies_following**: List Company Followings
 - **constructionwire_companies_follow**: Create a Company Following
@@ -49,9 +49,9 @@ This MCP server provides 75 tools across 1 integrations:
 - **constructionwire_companies_all_locations**: List Locations of multiple Companies
 - **constructionwire_people_list**: List People
 - **constructionwire_people_get**: Get a Person
-- **constructionwire_people_projects**: List Person&#x27;s Project Activities
-- **constructionwire_people_relationships**: List Person&#x27;s Relationships
-- **constructionwire_people_stats**: List Person&#x27;s Stats
+- **constructionwire_people_projects**: List Person's Project Activities
+- **constructionwire_people_relationships**: List Person's Relationships
+- **constructionwire_people_stats**: List Person's Stats
 - **constructionwire_people_facets**: List People Facets
 - **constructionwire_people_following**: List People Followings
 - **constructionwire_people_follow**: Create a Person Following
@@ -83,12 +83,12 @@ This MCP server provides 75 tools across 1 integrations:
 - **constructionwire_auth_login**: Create an Access Token
 - **constructionwire_auth_details**: List Authenticated Session Details
 - **constructionwire_auth_logout**: Logout from Authenticated Session
-- **constructionwire_auth_subscription**: 
-- **constructionwire_common_get_list**: 
-- **constructionwire_common_retail_chains**: 
-- **constructionwire_common_states**: 
-- **constructionwire_common_counties**: 
-- **constructionwire_common_regions**: 
+- **constructionwire_auth_subscription**: Get Subscription Details for the Authenticated Session
+- **constructionwire_common_get_list**: Get a Common List by ID
+- **constructionwire_common_retail_chains**: List Retail Chains
+- **constructionwire_common_states**: List US States
+- **constructionwire_common_counties**: List Counties for a State
+- **constructionwire_common_regions**: List US State Regions
 
 ## Installation
 
@@ -136,8 +136,32 @@ Add this to your Claude Desktop configuration:
 }
 ```
 
-## Instructions for Fetching API Keys/Tokens
-- **COMING SOON**
+## Getting API Credentials
+
+ConstructionWire API access is provided through their Data Services team — there is no self-serve developer portal.
+
+### How to get credentials
+
+1. **Phone (fastest):** Call **+1 (866) 316-5300** during business hours (Mon–Fri, 9am–5pm Central) and ask for API access / Data Services.
+2. **Email:** Send a request to **success.us@hubexo.com** asking for API trial credentials for `api.constructionwire.com`.
+3. **Free trial form:** Submit at [constructionwire.com/free-trial](https://info.buildcentral.com/free-trial-constructionwire) — this gives web access and enters the sales pipeline (API access may require a follow-up).
+
+### References
+
+- [API Documentation (Postman)](https://www.postman.com/buildcentral/public/documentation/gxn6y0g/constructionwire-api-2-0)
+- [API Brochure (PDF)](https://www.constructionwire.com/Content/pdf/buildcentral_api.pdf)
+- [Data Services](https://www.constructionwire.com/DataServices)
+
+### Configuration
+
+Once you have credentials, set them as environment variables:
+
+```env
+CONSTRUCTIONWIRE_USERNAME=your_username
+CONSTRUCTIONWIRE_PASSWORD=your_password
+```
+
+The MCP uses these to authenticate via `constructionwire_auth_login` at startup.
 
 ## Advanced Features
 

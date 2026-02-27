@@ -12,9 +12,9 @@ export interface ServerConfig {
   };
   
   constructionwire: {
-    cONSTRUCTIONWIREUSERNAME: string;
-    cONSTRUCTIONWIREPASSWORD: string;
-    api_base_url: any;
+    constructionwireUsername: string;
+    constructionwirePassword: string;
+    apiBaseUrl: string;
   };
 }
 
@@ -33,9 +33,9 @@ export function loadConfig(): ServerConfig {
     },
     
     constructionwire: {
-      cONSTRUCTIONWIREUSERNAME: process.env.CONSTRUCTIONWIRE_USERNAME || '',
-      cONSTRUCTIONWIREPASSWORD: process.env.CONSTRUCTIONWIRE_PASSWORD || '',
-      api_base_url: "https://api.constructionwire.com/v1",
+      constructionwireUsername: process.env.CONSTRUCTIONWIRE_USERNAME || '',
+      constructionwirePassword: process.env.CONSTRUCTIONWIRE_PASSWORD || '',
+      apiBaseUrl: 'https://api.constructionwire.com/v1',
     },
   };
 }
@@ -75,12 +75,11 @@ export function validateConfig(config: ServerConfig): { isValid: boolean; errors
   }
 
   // Validate constructionwire configuration
-  // ConstructionWire specific validation
-  if (!process.env.CONSTRUCTIONWIRE_EMAIL) {
-    errors.push('CONSTRUCTIONWIRE_EMAIL environment variable is required for ConstructionWire basic+bearer authentication');
+  if (!process.env.CONSTRUCTIONWIRE_USERNAME) {
+    errors.push('CONSTRUCTIONWIRE_USERNAME environment variable is required for ConstructionWire authentication');
   }
   if (!process.env.CONSTRUCTIONWIRE_PASSWORD) {
-    errors.push('CONSTRUCTIONWIRE_PASSWORD environment variable is required for ConstructionWire basic+bearer authentication');
+    errors.push('CONSTRUCTIONWIRE_PASSWORD environment variable is required for ConstructionWire authentication');
   }
 
   return {

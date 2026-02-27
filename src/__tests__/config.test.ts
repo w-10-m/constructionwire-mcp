@@ -14,7 +14,7 @@ describe('Config', () => {
 
   describe('loadConfig', () => {
     it('should load default configuration', () => {
-      process.env.CONSTRUCTIONWIRE_EMAIL = 'test@example.com';
+      process.env.CONSTRUCTIONWIRE_USERNAME = 'test-user';
       process.env.CONSTRUCTIONWIRE_PASSWORD = 'test-password';
       const config = loadConfig();
 
@@ -33,7 +33,7 @@ describe('Config', () => {
       process.env.LOG_SHIPPING_INTERVAL = '10000';
       process.env.LOG_SHIPPING_MAX_RETRIES = '5';
       process.env.LOG_LEVEL = 'DEBUG';
-      process.env.CONSTRUCTIONWIRE_EMAIL = 'test@example.com';
+      process.env.CONSTRUCTIONWIRE_USERNAME = 'test-user';
       process.env.CONSTRUCTIONWIRE_PASSWORD = 'test-password';
 
       const config = loadConfig();
@@ -53,15 +53,15 @@ describe('Config', () => {
 
       const config = loadConfig();
 
-      expect(config.constructionwire.cONSTRUCTIONWIREUSERNAME).toBe('cw_username');
-      expect(config.constructionwire.cONSTRUCTIONWIREPASSWORD).toBe('cw_password');
-      expect(config.constructionwire.api_base_url).toBe('https://api.constructionwire.com/v1');
+      expect(config.constructionwire.constructionwireUsername).toBe('cw_username');
+      expect(config.constructionwire.constructionwirePassword).toBe('cw_password');
+      expect(config.constructionwire.apiBaseUrl).toBe('https://api.constructionwire.com/v1');
     });
   });
 
   describe('validateConfig', () => {
     it('should validate a valid configuration', () => {
-      process.env.CONSTRUCTIONWIRE_EMAIL = 'test@example.com';
+      process.env.CONSTRUCTIONWIRE_USERNAME = 'test-user';
       process.env.CONSTRUCTIONWIRE_PASSWORD = 'test-password';
 
       const config: ServerConfig = {
@@ -74,9 +74,9 @@ describe('Config', () => {
           logLevel: 'ERROR'
         },
         constructionwire: {
-          cONSTRUCTIONWIREUSERNAME: 'test-user',
-          cONSTRUCTIONWIREPASSWORD: 'test-password',
-          api_base_url: 'https://api.constructionwire.com/v1'
+          constructionwireUsername: 'test-user',
+          constructionwirePassword: 'test-password',
+          apiBaseUrl: 'https://api.constructionwire.com/v1'
         }
       };
 
@@ -86,8 +86,8 @@ describe('Config', () => {
       expect(result.errors).toHaveLength(0);
     });
 
-    it('should require CONSTRUCTIONWIRE_EMAIL', () => {
-      delete process.env.CONSTRUCTIONWIRE_EMAIL;
+    it('should require CONSTRUCTIONWIRE_USERNAME', () => {
+      delete process.env.CONSTRUCTIONWIRE_USERNAME;
       process.env.CONSTRUCTIONWIRE_PASSWORD = 'test-password';
 
       const config: ServerConfig = {
@@ -100,20 +100,20 @@ describe('Config', () => {
           logLevel: 'ERROR'
         },
         constructionwire: {
-          cONSTRUCTIONWIREUSERNAME: '',
-          cONSTRUCTIONWIREPASSWORD: 'test-password',
-          api_base_url: 'https://api.constructionwire.com/v1'
+          constructionwireUsername: '',
+          constructionwirePassword: 'test-password',
+          apiBaseUrl: 'https://api.constructionwire.com/v1'
         }
       };
 
       const result = validateConfig(config);
 
       expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('CONSTRUCTIONWIRE_EMAIL environment variable is required for ConstructionWire basic+bearer authentication');
+      expect(result.errors).toContain('CONSTRUCTIONWIRE_USERNAME environment variable is required for ConstructionWire authentication');
     });
 
     it('should require CONSTRUCTIONWIRE_PASSWORD', () => {
-      process.env.CONSTRUCTIONWIRE_EMAIL = 'test@example.com';
+      process.env.CONSTRUCTIONWIRE_USERNAME = 'test-user';
       delete process.env.CONSTRUCTIONWIRE_PASSWORD;
 
       const config: ServerConfig = {
@@ -126,21 +126,21 @@ describe('Config', () => {
           logLevel: 'ERROR'
         },
         constructionwire: {
-          cONSTRUCTIONWIREUSERNAME: 'test-user',
-          cONSTRUCTIONWIREPASSWORD: '',
-          api_base_url: 'https://api.constructionwire.com/v1'
+          constructionwireUsername: 'test-user',
+          constructionwirePassword: '',
+          apiBaseUrl: 'https://api.constructionwire.com/v1'
         }
       };
 
       const result = validateConfig(config);
 
       expect(result.isValid).toBe(false);
-      expect(result.errors).toContain('CONSTRUCTIONWIRE_PASSWORD environment variable is required for ConstructionWire basic+bearer authentication');
+      expect(result.errors).toContain('CONSTRUCTIONWIRE_PASSWORD environment variable is required for ConstructionWire authentication');
     });
 
     describe('log shipping validation', () => {
       beforeEach(() => {
-        process.env.CONSTRUCTIONWIRE_EMAIL = 'test@example.com';
+        process.env.CONSTRUCTIONWIRE_USERNAME = 'test-user';
         process.env.CONSTRUCTIONWIRE_PASSWORD = 'test-password';
       });
 
@@ -155,9 +155,9 @@ describe('Config', () => {
             logLevel: 'ERROR'
           },
           constructionwire: {
-            cONSTRUCTIONWIREUSERNAME: 'test-user',
-            cONSTRUCTIONWIREPASSWORD: 'test-password',
-            api_base_url: 'https://api.constructionwire.com/v1'
+            constructionwireUsername: 'test-user',
+            constructionwirePassword: 'test-password',
+            apiBaseUrl: 'https://api.constructionwire.com/v1'
           }
         };
 
@@ -178,9 +178,9 @@ describe('Config', () => {
             logLevel: 'ERROR'
           },
           constructionwire: {
-            cONSTRUCTIONWIREUSERNAME: 'test-user',
-            cONSTRUCTIONWIREPASSWORD: 'test-password',
-            api_base_url: 'https://api.constructionwire.com/v1'
+            constructionwireUsername: 'test-user',
+            constructionwirePassword: 'test-password',
+            apiBaseUrl: 'https://api.constructionwire.com/v1'
           }
         };
 
@@ -201,9 +201,9 @@ describe('Config', () => {
             logLevel: 'ERROR'
           },
           constructionwire: {
-            cONSTRUCTIONWIREUSERNAME: 'test-user',
-            cONSTRUCTIONWIREPASSWORD: 'test-password',
-            api_base_url: 'https://api.constructionwire.com/v1'
+            constructionwireUsername: 'test-user',
+            constructionwirePassword: 'test-password',
+            apiBaseUrl: 'https://api.constructionwire.com/v1'
           }
         };
 
@@ -224,9 +224,9 @@ describe('Config', () => {
             logLevel: 'ERROR'
           },
           constructionwire: {
-            cONSTRUCTIONWIREUSERNAME: 'test-user',
-            cONSTRUCTIONWIREPASSWORD: 'test-password',
-            api_base_url: 'https://api.constructionwire.com/v1'
+            constructionwireUsername: 'test-user',
+            constructionwirePassword: 'test-password',
+            apiBaseUrl: 'https://api.constructionwire.com/v1'
           }
         };
 
@@ -248,9 +248,9 @@ describe('Config', () => {
             logLevel: 'ERROR'
           },
           constructionwire: {
-            cONSTRUCTIONWIREUSERNAME: 'test-user',
-            cONSTRUCTIONWIREPASSWORD: 'test-password',
-            api_base_url: 'https://api.constructionwire.com/v1'
+            constructionwireUsername: 'test-user',
+            constructionwirePassword: 'test-password',
+            apiBaseUrl: 'https://api.constructionwire.com/v1'
           }
         };
 

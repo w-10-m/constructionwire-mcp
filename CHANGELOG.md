@@ -1,3 +1,28 @@
+# [2.0.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.4.0...v2.0.0) (2026-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* Environment variables renamed from `CONSTRUCTIONWIRE_*` (fixing casing inconsistency)
+
+### Bug Fixes
+
+* fix `cONSTRUCTIONWIRE*` environment variable naming ([W10-131](https://linear.app/w10ltd/issue/W10-131))
+* fix config validation mismatch — EMAIL vs USERNAME ([W10-132](https://linear.app/w10ltd/issue/W10-132))
+* fix base URL inconsistency ([W10-133](https://linear.app/w10ltd/issue/W10-133))
+* remove 75 DEBUG comments from client ([W10-134](https://linear.app/w10ltd/issue/W10-134))
+* remove SaaS template boilerplate from client ([W10-135](https://linear.app/w10ltd/issue/W10-135))
+* update author from Coretext AI to West10 ([W10-136](https://linear.app/w10ltd/issue/W10-136))
+* fix HTML entities in README tool descriptions ([W10-139](https://linear.app/w10ltd/issue/W10-139))
+* replace COMING SOON with credential setup instructions ([W10-138](https://linear.app/w10ltd/issue/W10-138))
+* add descriptions to 6 undocumented tool definitions ([W10-91](https://linear.app/w10ltd/issue/W10-91))
+
+### Features
+
+* add MIT LICENSE file ([W10-137](https://linear.app/w10ltd/issue/W10-137))
+* add E2E test infrastructure
+* improve test coverage to 93%+
+
 # [1.4.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.3.0...v1.4.0) (2025-12-25)
 
 
