@@ -21,8 +21,8 @@ module.exports = {
     'src/**/*.ts',
     '!src/**/*.d.ts',
     '!src/index.ts',
-    '!src/clients/**',
-    '!src/tools/**'
+    '!src/clients/**/*.ts',
+    '!src/tools/**/*.ts'
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html', 'json-summary']
