@@ -15,6 +15,7 @@ export interface ServerConfig {
     constructionwireUsername: string;
     constructionwirePassword: string;
     apiBaseUrl: string;
+    maxRetries: number;
   };
 }
 
@@ -36,6 +37,7 @@ export function loadConfig(): ServerConfig {
       constructionwireUsername: process.env.CONSTRUCTIONWIRE_USERNAME || '',
       constructionwirePassword: process.env.CONSTRUCTIONWIRE_PASSWORD || '',
       apiBaseUrl: 'https://api.constructionwire.com/v1',
+      maxRetries: parseInt(process.env.CONSTRUCTIONWIRE_MAX_RETRIES || '3', 10),
     },
   };
 }

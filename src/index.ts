@@ -55,6 +55,7 @@ class ConstructionwireMcpServer {
       constructionwireUsername: process.env.CONSTRUCTIONWIRE_USERNAME,
       constructionwirePassword: process.env.CONSTRUCTIONWIRE_PASSWORD,
       apiBaseUrl: appConfig.constructionwire.apiBaseUrl,
+      maxRetries: appConfig.constructionwire.maxRetries,
       logger: this.logger
     });
     this.constructionwireTools = new ConstructionwireTools(this.constructionwireClient);

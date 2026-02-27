@@ -76,7 +76,8 @@ describe('Config', () => {
         constructionwire: {
           constructionwireUsername: 'test-user',
           constructionwirePassword: 'test-password',
-          apiBaseUrl: 'https://api.constructionwire.com/v1'
+          apiBaseUrl: 'https://api.constructionwire.com/v1',
+          maxRetries: 3
         }
       };
 
@@ -102,7 +103,8 @@ describe('Config', () => {
         constructionwire: {
           constructionwireUsername: '',
           constructionwirePassword: 'test-password',
-          apiBaseUrl: 'https://api.constructionwire.com/v1'
+          apiBaseUrl: 'https://api.constructionwire.com/v1',
+          maxRetries: 3
         }
       };
 
@@ -128,7 +130,8 @@ describe('Config', () => {
         constructionwire: {
           constructionwireUsername: 'test-user',
           constructionwirePassword: '',
-          apiBaseUrl: 'https://api.constructionwire.com/v1'
+          apiBaseUrl: 'https://api.constructionwire.com/v1',
+          maxRetries: 3
         }
       };
 
@@ -157,7 +160,8 @@ describe('Config', () => {
           constructionwire: {
             constructionwireUsername: 'test-user',
             constructionwirePassword: 'test-password',
-            apiBaseUrl: 'https://api.constructionwire.com/v1'
+            apiBaseUrl: 'https://api.constructionwire.com/v1',
+            maxRetries: 3
           }
         };
 
@@ -180,7 +184,8 @@ describe('Config', () => {
           constructionwire: {
             constructionwireUsername: 'test-user',
             constructionwirePassword: 'test-password',
-            apiBaseUrl: 'https://api.constructionwire.com/v1'
+            apiBaseUrl: 'https://api.constructionwire.com/v1',
+            maxRetries: 3
           }
         };
 
@@ -203,7 +208,8 @@ describe('Config', () => {
           constructionwire: {
             constructionwireUsername: 'test-user',
             constructionwirePassword: 'test-password',
-            apiBaseUrl: 'https://api.constructionwire.com/v1'
+            apiBaseUrl: 'https://api.constructionwire.com/v1',
+            maxRetries: 3
           }
         };
 
@@ -226,7 +232,8 @@ describe('Config', () => {
           constructionwire: {
             constructionwireUsername: 'test-user',
             constructionwirePassword: 'test-password',
-            apiBaseUrl: 'https://api.constructionwire.com/v1'
+            apiBaseUrl: 'https://api.constructionwire.com/v1',
+            maxRetries: 3
           }
         };
 
@@ -250,7 +257,8 @@ describe('Config', () => {
           constructionwire: {
             constructionwireUsername: 'test-user',
             constructionwirePassword: 'test-password',
-            apiBaseUrl: 'https://api.constructionwire.com/v1'
+            apiBaseUrl: 'https://api.constructionwire.com/v1',
+            maxRetries: 3
           }
         };
 

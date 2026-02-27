@@ -9,6 +9,7 @@ export interface ConstructionwireClientConfig {
   apiBaseUrl?: string;
   timeout?: number;
   rateLimit?: number; // requests per minute
+  maxRetries?: number; // max retry attempts for transient errors
   logger?: Logger;
 }
 
@@ -52,6 +53,9 @@ export class ConstructionwireClient {
         ...this.getAuthHeaders()
       },
     });
+
+    // Add retry logic for transient errors
+    this.setupRetry(this.config.maxRetries ?? 3);
 
     // Add request interceptor for rate limiting
     if (this.config.rateLimit) {
@@ -151,6 +155,50 @@ export class ConstructionwireClient {
       
       lastRequestTime = Date.now();
       return config;
+    });
+  }
+
+  private setupRetry(maxRetries: number) {
+    const retryableStatuses = new Set([429, 500, 502, 503, 504]);
+
+    this.logger.info('RETRY_SETUP', 'Retry logic configured', { maxRetries });
+
+    this.httpClient.interceptors.response.use(undefined, async (error) => {
+      const config = error.config;
+      if (!config) return Promise.reject(error);
+
+      config.__retryCount = config.__retryCount || 0;
+      const status = error.response?.status;
+
+      if (config.__retryCount >= maxRetries || !retryableStatuses.has(status)) {
+        return Promise.reject(error);
+      }
+
+      config.__retryCount += 1;
+
+      // Respect Retry-After header if present
+      const retryAfter = error.response?.headers?.['retry-after'];
+      let delayMs: number;
+      if (retryAfter) {
+        const parsed = Number(retryAfter);
+        delayMs = isNaN(parsed) ? 1000 : parsed * 1000;
+      } else {
+        // Exponential backoff with jitter: 1s, 2s, 4s
+        const baseDelay = 1000 * Math.pow(2, config.__retryCount - 1);
+        delayMs = baseDelay + Math.random() * 500;
+      }
+
+      this.logger.warn('HTTP_RETRY', `Retrying request (attempt ${config.__retryCount}/${maxRetries})`, {
+        status,
+        attempt: config.__retryCount,
+        maxRetries,
+        delayMs: Math.round(delayMs),
+        url: config.url,
+        method: config.method?.toUpperCase()
+      });
+
+      await new Promise(resolve => setTimeout(resolve, delayMs));
+      return this.httpClient.request(config);
     });
   }
 
