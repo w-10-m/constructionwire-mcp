@@ -31,7 +31,7 @@ export class LogBatcher {
 
     // Flush immediately if batch size reached
     if (this.logs.length >= this.maxBatchSize) {
-      this.flush();
+      this.flush().catch(err => console.error('Flush error:', err));
     }
   }
 

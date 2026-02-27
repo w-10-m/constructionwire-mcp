@@ -23,27 +23,20 @@ config();
 import { ConstructionwireTools } from './tools/constructionwire-tools.js';
 import { ConstructionwireClient } from './clients/constructionwire-client.js';
 
-// Import OAuth clients only if OAuth is enabled globally
-
-// Import unified OAuth clients for special cases
-
 class ConstructionwireMcpServer {
   private server: Server;
   private logShipper!: LogShipper;
   private logger!: Logger;
   private requestTracker!: RequestTracker;
   private progressReporter!: ProgressReporter;
-  
-  // Initialize template tools
+
   private constructionwireTools: ConstructionwireTools;
   private constructionwireClient: ConstructionwireClient;
-  
-  // OAuth clients
 
   constructor() {
     // Initialize logging first
     this.initializeLogging();
-    
+
     this.server = new Server(
       {
         name: 'constructionwire-mcp',
@@ -56,14 +49,12 @@ class ConstructionwireMcpServer {
       }
     );
 
-    // Initialize OAuth clients first
-
     // Initialize template clients and tools
-    // Regular client - pass configuration object
+    const appConfig = loadConfig();
     this.constructionwireClient = new ConstructionwireClient({
       constructionwireUsername: process.env.CONSTRUCTIONWIRE_USERNAME,
       constructionwirePassword: process.env.CONSTRUCTIONWIRE_PASSWORD,
-      apiBaseUrl: 'https://api.constructionwire.com/v1',
+      apiBaseUrl: appConfig.constructionwire.apiBaseUrl,
       logger: this.logger
     });
     this.constructionwireTools = new ConstructionwireTools(this.constructionwireClient);
@@ -122,9 +113,9 @@ class ConstructionwireMcpServer {
       return { tools };
     });
 
-    this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
+    this.server.setRequestHandler(CallToolRequestSchema, async (request, extra) => {
       const { name, arguments: args } = request.params;
-      const requestId = (request as any).id;
+      const requestId = extra.requestId;
       const progressToken = request.params._meta?.progressToken;
       
       // Register request for tracking
@@ -177,15 +168,20 @@ class ConstructionwireMcpServer {
     // Handle cancellation notifications
     this.server.setNotificationHandler(CancelledNotificationSchema, async (notification) => {
       const { requestId, reason } = notification.params;
-      
+
       this.logger.info('CANCELLATION_RECEIVED', 'Received cancellation notification', {
         requestId,
         reason
       });
-      
+
+      if (requestId === undefined) {
+        this.logger.debug('CANCELLATION_IGNORED', 'Cancellation ignored - no requestId provided', {});
+        return;
+      }
+
       // Cancel the request
       const cancelled = this.requestTracker.cancelRequest(requestId, reason);
-      
+
       if (!cancelled) {
         this.logger.debug('CANCELLATION_IGNORED', 'Cancellation ignored - request not found or already completed', {
           requestId
@@ -233,4 +229,7 @@ class ConstructionwireMcpServer {
 }
 
 const server = new ConstructionwireMcpServer();
-server.run().catch(console.error);
+server.run().catch((error) => {
+  console.error('Fatal error starting MCP server:', error);
+  process.exit(1);
+});
