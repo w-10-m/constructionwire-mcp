@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/w-10-m/constructionwire-mcp/compare/v2.0.0...v2.0.1) (2026-02-27)
+
+
+### Bug Fixes
+
+* bump axios to 1.13.5 to resolve DoS vulnerability ([c083302](https://github.com/w-10-m/constructionwire-mcp/commit/c0833028b04bc0706e4becf9ea5f3f6623c676b4)), closes [#17](https://github.com/w-10-m/constructionwire-mcp/issues/17)
+
 # [2.0.0](https://github.com/w-10-m/constructionwire-mcp/compare/v1.4.0...v2.0.0) (2026-02-27)
 
 

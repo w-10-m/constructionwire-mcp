@@ -1,6 +1,6 @@
 {
   "name": "@west10tech/constructionwire-mcp",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "MCP server with full constructionwire capabilities (75 endpoints)",
   "type": "module",
   "main": "dist/index.js",
